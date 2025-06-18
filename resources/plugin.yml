@@ -1,0 +1,16 @@
+version: 1.0.0
+main: me.rockyhawk.dialogpanels.NaturalPanels
+name: NaturalPanels
+author: RockyHawk
+api-version: '1.13'
+folia-supported: true
+description: Fully Custom Dialog GUIs. Make your Server Professional.
+softdepend: [PlaceholderAPI, Vault, TokenManager, VotingPlugin, floodgate]
+commands:
+  naturalpanel:
+    description: Main plugin command.
+    usage: /naturalpanel <command> [arguments]
+    aliases: [np]
+permissions:
+  naturalpanel.reload:
+    default: op
