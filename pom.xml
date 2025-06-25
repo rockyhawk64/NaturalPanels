@@ -19,9 +19,37 @@
         <sourceDirectory>${src.dir}</sourceDirectory>
         <resources>
             <resource>
-                <directory>resource</directory>
+                <directory>resources</directory>
             </resource>
         </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Shade FancyDialogs into plugin -->
+                            <relocations>
+                                <relocation>
+                                    <pattern>de.oliver</pattern>
+                                    <shadedPattern>me.rockyhawk.libs.fancydialogs</shadedPattern>
+                                </relocation>
+                            </relocations>
+
+                            <!-- Minimize jar to only needed classes -->
+                            <minimizeJar>true</minimizeJar>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <repositories>
@@ -29,6 +57,19 @@
         <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+
+        <!-- Placeholder API -->
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+
+        <!-- Fancy Dialogs -->
+        <repository>
+            <id>fancyinnovations-releases</id>
+            <name>FancyInnovations Repository</name>
+            <url>https://repo.fancyinnovations.com/releases</url>
         </repository>
     </repositories>
 
@@ -41,11 +82,34 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Placeholder API -->
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.11.6</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Adventure API -->
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-api</artifactId>
+            <version>4.23.0</version>
+        </dependency>
+
+        <!-- Fancy Dialogs -->
+        <dependency>
+            <groupId>de.oliver</groupId>
+            <artifactId>FancyDialogs</artifactId>
+            <version>0.0.5</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- MiniMessage -->
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-text-minimessage</artifactId>
-            <version>4.14.0</version>
+            <version>4.23.0</version>
         </dependency>
 
         <!-- bstats -->
