@@ -1,0 +1,27 @@
+title: "Example Dialog"
+permission: default
+closable: true
+
+text:
+  - "Server Selector"
+  - "Choose a server to join from the list below"
+
+inputs-order:
+  - one
+
+inputs:
+  one:
+    key: k
+    label: l
+    placeholder: p
+    max-length: 100
+    max-lines: 3
+
+button-order:
+  - example1
+
+buttons:
+  example1:
+    label: "Survival"
+    tooltip: "Join Survival 1"
+    actions: [] #not sure yet how actions work

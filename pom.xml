@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>NaturalPanels</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -22,34 +22,6 @@
                 <directory>resources</directory>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.4.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Shade FancyDialogs into plugin -->
-                            <relocations>
-                                <relocation>
-                                    <pattern>de.oliver</pattern>
-                                    <shadedPattern>me.rockyhawk.libs.fancydialogs</shadedPattern>
-                                </relocation>
-                            </relocations>
-
-                            <!-- Minimize jar to only needed classes -->
-                            <minimizeJar>true</minimizeJar>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 
     <repositories>
@@ -102,7 +74,7 @@
             <groupId>de.oliver</groupId>
             <artifactId>FancyDialogs</artifactId>
             <version>0.0.5</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
 
         <!-- MiniMessage -->

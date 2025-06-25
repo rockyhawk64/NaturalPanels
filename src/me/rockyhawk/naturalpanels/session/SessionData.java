@@ -1,4 +1,4 @@
-package me.rockyhawk.naturalpanels.panel;
+package me.rockyhawk.naturalpanels.session;
 
 import java.util.HashMap;
 

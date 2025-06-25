@@ -1,6 +1,5 @@
 package me.rockyhawk.naturalpanels.panel;
 
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -8,8 +7,8 @@ import java.io.File;
 public class Panel {
     /*This is the Panel object*/
 
-    private ConfigurationSection panelConfig;
-    private String panelName;
+    private final YamlConfiguration panelConfig;
+    private final String panelName;
 
     //make the object
     public Panel(File panelFile) {
@@ -20,5 +19,13 @@ public class Panel {
         }
         this.panelName = fileName;
         this.panelConfig = YamlConfiguration.loadConfiguration(panelFile);
+    }
+
+    public YamlConfiguration getConfig(){
+        return panelConfig;
+    }
+
+    public String getName(){
+        return panelName;
     }
 }

@@ -5,7 +5,7 @@ author: RockyHawk
 api-version: '1.13'
 folia-supported: true
 description: Fully Custom Dialog GUIs. Make your Server Professional.
-softdepend: [PlaceholderAPI, Vault, TokenManager, VotingPlugin, floodgate]
+softdepend: [PlaceholderAPI, Vault, floodgate]
 commands:
   naturalpanels:
     description: Main plugin command.
@@ -14,7 +14,9 @@ commands:
 permissions:
   naturalpanels.command:
     default: true
-  naturalpanels.reload:
+  naturalpanels.command.reload:
     default: op
-  naturalpanels.open:
+  naturalpanels.command.open:
+    default: true
+  naturalpanels.command.help:
     default: true

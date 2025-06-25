@@ -1,10 +1,9 @@
 package me.rockyhawk.naturalpanels.commands;
 
 import me.rockyhawk.naturalpanels.Context;
+import me.rockyhawk.naturalpanels.commands.subcommands.HelpCommand;
+import me.rockyhawk.naturalpanels.commands.subcommands.OpenCommand;
 import me.rockyhawk.naturalpanels.commands.subcommands.ReloadCommand;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,7 +21,9 @@ public class MainCommand implements CommandExecutor {
     }
 
     private void registerSubCommands() {
-        register(new ReloadCommand(ctx));
+        register(new ReloadCommand());
+        register(new OpenCommand());
+        register(new HelpCommand());
     }
 
     private void register(SubCommand subCommand) {
@@ -55,6 +56,6 @@ public class MainCommand implements CommandExecutor {
         // Pass the remaining args after the subcommand name
         String[] subArgs = args.length > 1 ? java.util.Arrays.copyOfRange(args, 1, args.length) : new String[0];
 
-        return subCommand.execute(sender, subArgs);
+        return subCommand.execute(ctx, sender, subArgs);
     }
 }

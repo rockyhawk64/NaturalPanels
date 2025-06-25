@@ -2,7 +2,7 @@ package me.rockyhawk.naturalpanels.formatter.placeholders;
 
 import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.formatter.PlaceholderResolver;
-import me.rockyhawk.naturalpanels.panel.SessionData;
+import me.rockyhawk.naturalpanels.session.SessionData;
 import org.bukkit.OfflinePlayer;
 
 public class DataPlaceholder implements PlaceholderResolver {
@@ -13,7 +13,7 @@ public class DataPlaceholder implements PlaceholderResolver {
         // Check if identifier starts with "data_"
         String key = identifier.substring("data_".length());
 
-        // TODO: Get the SessionData object for the player from your plugin
+        // TODO: Get the SessionData object for the player from once done
         // For now just a placeholder to avoid errors
         SessionData sessionData = null;
 
