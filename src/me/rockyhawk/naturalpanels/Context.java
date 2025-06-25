@@ -5,11 +5,7 @@ import me.rockyhawk.naturalpanels.commands.MainCommand;
 import me.rockyhawk.naturalpanels.commands.TabComplete;
 import me.rockyhawk.naturalpanels.formatter.Placeholders;
 import me.rockyhawk.naturalpanels.formatter.TextFormatter;
-import me.rockyhawk.naturalpanels.panel.Panel;
 import org.bukkit.Bukkit;
-
-import java.io.File;
-import java.util.Objects;
 
 public class Context {
     public NaturalPanels plugin;

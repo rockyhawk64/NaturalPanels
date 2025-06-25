@@ -3,8 +3,6 @@ package me.rockyhawk.naturalpanels.formatter;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.rockyhawk.naturalpanels.Context;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;

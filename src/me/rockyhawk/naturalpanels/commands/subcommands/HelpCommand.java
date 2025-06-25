@@ -4,7 +4,6 @@ import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.commands.SubCommand;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.command.CommandSender;
 
 public class HelpCommand implements SubCommand {
