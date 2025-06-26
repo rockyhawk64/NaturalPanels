@@ -40,6 +40,12 @@ public class ConditionParser {
 
     // Primary = (group) or comparison
     private ConditionNode parsePrimary() {
+        if (match("$NOT")) {
+            // Wrap the next primary node in a NotNode
+            ConditionNode node = parsePrimary();
+            return new NotNode(node);
+        }
+
         if (match("(")) {
             ConditionNode node = parseOr();  // recurse into expression
             expect(")");
