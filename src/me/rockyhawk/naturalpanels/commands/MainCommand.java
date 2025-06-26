@@ -4,6 +4,7 @@ import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.commands.subcommands.HelpCommand;
 import me.rockyhawk.naturalpanels.commands.subcommands.OpenCommand;
 import me.rockyhawk.naturalpanels.commands.subcommands.ReloadCommand;
+import me.rockyhawk.naturalpanels.commands.subcommands.VersionCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,7 @@ public class MainCommand implements CommandExecutor {
         register(new ReloadCommand());
         register(new OpenCommand());
         register(new HelpCommand());
+        register(new VersionCommand());
     }
 
     private void register(SubCommand subCommand) {

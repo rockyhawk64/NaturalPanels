@@ -8,5 +8,6 @@ public interface CommandTagResolver {
     /**
      * @return true if this tag handled the command and it shouldn't be dispatched further.
      */
-    boolean handle(Context ctx, Panel panel, Player player, String command);
+    boolean isCorrectTag(String tag);
+    void handle(Context ctx, Panel panel, Player player, String command);
 }

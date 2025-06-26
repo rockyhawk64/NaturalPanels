@@ -6,7 +6,7 @@ import com.fancyinnovations.fancydialogs.api.data.inputs.DialogTextField;
 import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.builder.logic.ConditionNode;
 import me.rockyhawk.naturalpanels.builder.logic.ConditionParser;
-import me.rockyhawk.naturalpanels.session.DialogSession;
+import me.rockyhawk.naturalpanels.session.panel.Panel;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -25,7 +25,7 @@ public class ComponentBuilder {
             Player player,
             YamlConfiguration config,
             List<String> buttonOrder,
-            DialogSession dialog){
+            Panel panel){
         List<DialogButton> buttons = new ArrayList<>();
         // Iterate buttons for dialog
         for(String entry : buttonOrder){
@@ -55,7 +55,7 @@ public class ComponentBuilder {
                     ctx.text.parseText(player, buttonLabel),
                     ctx.text.parseText(player, buttonTooltip), actions);
             buttons.add(button);
-            dialog.setButton(button.id(), entry);
+            panel.setButton(button.id(), entry);
         }
         return buttons;
     }

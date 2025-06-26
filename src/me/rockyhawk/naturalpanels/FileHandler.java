@@ -1,6 +1,7 @@
 package me.rockyhawk.naturalpanels;
 
 import me.rockyhawk.naturalpanels.session.panel.Panel;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
@@ -29,11 +30,21 @@ public class FileHandler {
             return;
         }
 
-        File[] files = ctx.plugin.folder.listFiles((dir, name) -> name.endsWith(".yml") || name.endsWith(".yaml"));
+        loadYamlFilesRecursively(ctx.plugin.folder);
+    }
+
+    private void loadYamlFilesRecursively(File directory) {
+        File[] files = directory.listFiles();
         if (files == null) return;
 
         for (File file : files) {
-            ctx.plugin.panels.put(fileToName(file), new Panel(file));
+            if (file.isDirectory()) {
+                // Recursively enter subfolder
+                loadYamlFilesRecursively(file);
+            } else if (file.isFile() && (file.getName().endsWith(".yml") || file.getName().endsWith(".yaml"))) {
+                // Load YAML config and put into panels map
+                ctx.plugin.panels.put(fileToName(file), YamlConfiguration.loadConfiguration(file));
+            }
         }
     }
 }

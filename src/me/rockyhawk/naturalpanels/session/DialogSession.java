@@ -1,43 +1,25 @@
 package me.rockyhawk.naturalpanels.session;
 
-import java.util.HashMap;
+import me.rockyhawk.naturalpanels.session.panel.Panel;
+import me.rockyhawk.naturalpanels.session.panel.PanelData;
 
 public class DialogSession {
-    // Data stored in the panel session the player has open
-    // If a panel opens another panel the data will automatically follow the player until the panel is closed
-    private final HashMap<String,String> data;
+    private Panel panel;
+    private final PanelData data;
 
-    // Maps the button name in the dialog to its UUID
-    private final HashMap<String,String> buttonIds;
-    private final String dialogName;
-
-    public DialogSession(String name){
-        data = new HashMap<>();
-        buttonIds = new HashMap<>();
-        dialogName = name;
+    public DialogSession(Panel panel){
+        this.data = new PanelData();
+        this.panel = panel;
     }
 
-    // Data setters and getters
-    public void setData(String placeholder, String value){
-        data.put(placeholder,value);
+    // Basic getters and setters
+    public PanelData getData(){
+        return data;
     }
-    public String getData(String placeholder){
-        return data.get(placeholder);
+    public Panel getPanel(){
+        return panel;
     }
-    public void removeData(String placeholder){
-        data.remove(placeholder);
-    }
-
-    // Button setters and getters
-    public void setButton(String id, String name){
-        buttonIds.put(id, name);
-    }
-    public String getButton(String id){
-        return buttonIds.get(id);
-    }
-
-    // Get dialog name
-    public String getName(){
-        return dialogName;
+    public void setPanel(Panel newPanel){
+        panel = newPanel;
     }
 }

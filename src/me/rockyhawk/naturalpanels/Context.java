@@ -5,6 +5,7 @@ import me.rockyhawk.naturalpanels.commands.MainCommand;
 import me.rockyhawk.naturalpanels.commands.TabComplete;
 import me.rockyhawk.naturalpanels.formatter.Placeholders;
 import me.rockyhawk.naturalpanels.formatter.TextFormatter;
+import me.rockyhawk.naturalpanels.interaction.commands.CommandRunner;
 import me.rockyhawk.naturalpanels.session.ClickedEvent;
 import me.rockyhawk.naturalpanels.session.SessionManager;
 import org.bukkit.Bukkit;
@@ -15,6 +16,7 @@ public class Context {
     public PanelBuilder builder;
     public FileHandler fileHandler;
     public SessionManager session;
+    public CommandRunner commands;
 
     public Context(NaturalPanels pl) {
         plugin = pl;
@@ -35,5 +37,6 @@ public class Context {
         builder = new PanelBuilder(this);
         fileHandler = new FileHandler(this);
         session = new SessionManager(this);
+        commands = new CommandRunner(this);
     }
 }

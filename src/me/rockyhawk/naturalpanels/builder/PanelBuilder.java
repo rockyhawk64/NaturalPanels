@@ -6,7 +6,6 @@ import com.fancyinnovations.fancydialogs.api.data.DialogBodyData;
 import com.fancyinnovations.fancydialogs.api.data.DialogData;
 import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.session.panel.Panel;
-import me.rockyhawk.naturalpanels.session.DialogSession;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -29,7 +28,6 @@ public class PanelBuilder {
 
     private Dialog constructDialog(Player player, Panel panel) {
         YamlConfiguration config = panel.getConfig();
-        DialogSession dialog = new DialogSession(panel.getName());
 
         String title = ctx.text.parseText(player, config.getString("title"));
         boolean closable = config.getBoolean("closable");
@@ -51,9 +49,9 @@ public class PanelBuilder {
                 closable,
                 body,
                 componentsBuilder.inputBuilder(player, config, inputOrder),
-                componentsBuilder.buttonBuilder(player, config, buttonOrder, dialog)
+                componentsBuilder.buttonBuilder(player, config, buttonOrder, panel)
         );
-        ctx.session.createSession(player, dialog);
+        ctx.session.createSession(player, panel);
 
         return FancyDialogs.get().createDialog(dialogData);
     }

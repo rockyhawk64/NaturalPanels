@@ -26,11 +26,14 @@ public class OpenCommand implements SubCommand {
             return true;
         }
 
-        Panel panel = ctx.plugin.panels.get(args[0]);
-        if (panel == null) {
+        if (ctx.plugin.panels.get(args[0]) == null) {
             ctx.text.sendError(sender, "Panel '" + args[0] + "' not found.");
             return true;
         }
+        Panel panel = new Panel(
+                args[0],
+                ctx.plugin.panels.get(args[0])
+        );
 
         Player target;
 

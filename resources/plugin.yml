@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 0.0.1-ALPHA
 main: me.rockyhawk.naturalpanels.NaturalPanels
 name: NaturalPanels
 author: RockyHawk
@@ -16,6 +16,8 @@ permissions:
     default: true
   naturalpanels.command.reload:
     default: op
+  naturalpanels.command.version:
+    default: true
   naturalpanels.command.open:
     default: true
   naturalpanels.command.help:

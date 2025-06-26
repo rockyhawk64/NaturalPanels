@@ -20,7 +20,7 @@ public class DataPlaceholder implements PlaceholderResolver {
         if(session == null) return null;
 
         // Get the data from session
-        String data = session.getData(ctx.text.parseText((Player) player, key));
+        String data = session.getData().getData(ctx.text.parseText((Player) player, key));
 
         String value = ctx.text.parseText((Player) player, data);
         return value != null ? value : "";

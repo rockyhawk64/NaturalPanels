@@ -32,6 +32,11 @@ public class HelpCommand implements SubCommand {
                     .append(Component.text("Reloads all config and panel files", NamedTextColor.WHITE)));
         }
 
+        if (sender.hasPermission("naturalpanels.command.version")) {
+            sender.sendMessage(Component.text("/np version ", NamedTextColor.GOLD)
+                    .append(Component.text("Gets the plugin version", NamedTextColor.WHITE)));
+        }
+
         if (sender.hasPermission("naturalpanels.command.help")) {
             sender.sendMessage(Component.text("/np help ", NamedTextColor.GOLD)
                     .append(Component.text("Shows this help menu", NamedTextColor.WHITE)));

@@ -32,6 +32,9 @@ public class TabComplete implements TabCompleter {
             if(sender.hasPermission("naturalpanels.command.help")) {
                 output.add("help");
             }
+            if(sender.hasPermission("naturalpanels.command.version")) {
+                output.add("version");
+            }
         }
         if(args.length == 2){
             if(args[0].equals("open")){
