@@ -3,7 +3,9 @@ package me.rockyhawk.naturalpanels.builder;
 import com.fancyinnovations.fancydialogs.api.data.DialogButton;
 import com.fancyinnovations.fancydialogs.api.data.inputs.DialogInputs;
 import com.fancyinnovations.fancydialogs.api.data.inputs.DialogTextField;
+import com.fancyinnovations.fancydialogs.api.events.DialogButtonClickedEvent;
 import me.rockyhawk.naturalpanels.Context;
+import me.rockyhawk.naturalpanels.session.DialogSession;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -18,7 +20,11 @@ public class ComponentBuilder {
         this.ctx = ctx;
     }
 
-    public List<DialogButton> buttonBuilder(Player player, YamlConfiguration config, List<String> buttonOrder){
+    public List<DialogButton> buttonBuilder(
+            Player player,
+            YamlConfiguration config,
+            List<String> buttonOrder,
+            DialogSession dialog){
         List<DialogButton> buttons = new ArrayList<>();
         // Iterate buttons for dialog
         for(String entry : buttonOrder){
@@ -29,7 +35,11 @@ public class ComponentBuilder {
 
             // Create actions for dialog buttons
             List<DialogButton.DialogAction> actions = new ArrayList<>();
-            DialogButton.DialogAction action = new DialogButton.DialogAction("run_command", "say hello");
+            String actionType = buttonSection.getString("action.type");
+            String actionData = buttonSection.getString("action.data");
+            DialogButton.DialogAction action = new DialogButton.DialogAction(
+                    ctx.text.parseText(player, actionType),
+                    ctx.text.parseText(player, actionData));
             actions.add(action);
 
             // Add button into dialog
@@ -37,6 +47,7 @@ public class ComponentBuilder {
                     ctx.text.parseText(player, buttonLabel),
                     ctx.text.parseText(player, buttonTooltip), actions);
             buttons.add(button);
+            dialog.setButton(button.id(), entry);
         }
         return buttons;
     }
