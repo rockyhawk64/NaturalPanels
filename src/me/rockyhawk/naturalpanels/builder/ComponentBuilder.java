@@ -41,19 +41,10 @@ public class ComponentBuilder {
                 if(!result) continue;
             }
 
-            // Create actions for dialog buttons
-            List<DialogButton.DialogAction> actions = new ArrayList<>();
-            String actionType = buttonSection.getString("action.type");
-            String actionData = buttonSection.getString("action.data");
-            DialogButton.DialogAction action = new DialogButton.DialogAction(
-                    ctx.text.parseText(player, actionType),
-                    ctx.text.parseText(player, actionData));
-            actions.add(action);
-
             // Add button into dialog
             DialogButton button = new DialogButton(
                     ctx.text.parseText(player, buttonLabel),
-                    ctx.text.parseText(player, buttonTooltip), actions);
+                    ctx.text.parseText(player, buttonTooltip), List.of());
             buttons.add(button);
             panel.setButton(button.id(), entry);
         }
