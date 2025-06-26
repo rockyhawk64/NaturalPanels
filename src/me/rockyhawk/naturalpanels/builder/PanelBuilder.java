@@ -5,7 +5,7 @@ import com.fancyinnovations.fancydialogs.api.FancyDialogs;
 import com.fancyinnovations.fancydialogs.api.data.DialogBodyData;
 import com.fancyinnovations.fancydialogs.api.data.DialogData;
 import me.rockyhawk.naturalpanels.Context;
-import me.rockyhawk.naturalpanels.panel.Panel;
+import me.rockyhawk.naturalpanels.session.panel.Panel;
 import me.rockyhawk.naturalpanels.session.DialogSession;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

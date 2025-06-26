@@ -3,8 +3,9 @@ package me.rockyhawk.naturalpanels.builder;
 import com.fancyinnovations.fancydialogs.api.data.DialogButton;
 import com.fancyinnovations.fancydialogs.api.data.inputs.DialogInputs;
 import com.fancyinnovations.fancydialogs.api.data.inputs.DialogTextField;
-import com.fancyinnovations.fancydialogs.api.events.DialogButtonClickedEvent;
 import me.rockyhawk.naturalpanels.Context;
+import me.rockyhawk.naturalpanels.builder.logic.ConditionNode;
+import me.rockyhawk.naturalpanels.builder.logic.ConditionParser;
 import me.rockyhawk.naturalpanels.session.DialogSession;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -32,6 +33,13 @@ public class ComponentBuilder {
             ConfigurationSection buttonSection = config.getConfigurationSection("buttons." + entry);
             String buttonLabel = buttonSection.getString("label");
             String buttonTooltip = buttonSection.getString("tooltip");
+            String condition = buttonSection.getString("condition");
+
+            if(condition != null){
+                ConditionNode conditionNode = new ConditionParser().parse(condition);
+                boolean result = conditionNode.evaluate(player, ctx);
+                if(!result) continue;
+            }
 
             // Create actions for dialog buttons
             List<DialogButton.DialogAction> actions = new ArrayList<>();
@@ -64,6 +72,13 @@ public class ComponentBuilder {
             String placeholder = inputSection.getString("placeholder");
             int maxLength = inputSection.getInt("max-length");
             int maxLines = inputSection.getInt("max-lines");
+            String condition = inputSection.getString("condition");
+
+            if(condition != null){
+                ConditionNode conditionNode = new ConditionParser().parse(condition);
+                boolean result = conditionNode.evaluate(player, ctx);
+                if(!result) continue;
+            }
 
             DialogTextField textField = new DialogTextField(
                     ctx.text.parseText(player, inputKey),

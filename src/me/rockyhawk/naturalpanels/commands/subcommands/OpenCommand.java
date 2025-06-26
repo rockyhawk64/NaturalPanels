@@ -2,7 +2,7 @@ package me.rockyhawk.naturalpanels.commands.subcommands;
 
 import me.rockyhawk.naturalpanels.Context;
 import me.rockyhawk.naturalpanels.commands.SubCommand;
-import me.rockyhawk.naturalpanels.panel.Panel;
+import me.rockyhawk.naturalpanels.session.panel.Panel;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

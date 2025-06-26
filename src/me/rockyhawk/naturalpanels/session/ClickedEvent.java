@@ -31,6 +31,9 @@ public class ClickedEvent implements Listener {
             Bukkit.getScheduler().runTask(ctx.plugin, () -> {
                 Bukkit.dispatchCommand(e.getPlayer(), command);
             });
+            if(command.startsWith("[open]")){
+                ctx.builder.openPanel(e.getPlayer(), ctx.plugin.panels.get(command.substring(6).trim()));
+            }
         }
     }
 }

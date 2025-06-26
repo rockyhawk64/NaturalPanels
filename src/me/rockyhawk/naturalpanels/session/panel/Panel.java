@@ -1,4 +1,4 @@
-package me.rockyhawk.naturalpanels.panel;
+package me.rockyhawk.naturalpanels.session.panel;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 

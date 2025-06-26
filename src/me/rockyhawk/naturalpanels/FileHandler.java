@@ -1,6 +1,6 @@
 package me.rockyhawk.naturalpanels;
 
-import me.rockyhawk.naturalpanels.panel.Panel;
+import me.rockyhawk.naturalpanels.session.panel.Panel;
 
 import java.io.File;
 
